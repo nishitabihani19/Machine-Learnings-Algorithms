@@ -1,0 +1,12 @@
+import pandas as pd
+data=pd.read_csv('phone_data.csv')
+print(data['item'].count())
+print(data['duration'].max())
+print(data['duration'].sum())
+print(data['duration'][data['item']=='call'].count())
+print(data['duration'][data['item']=='call'].sum())
+print(data['item'].value_counts())
+print(data['month'].value_counts())
+print(data.groupby('month')['date'].count())
+print(data[data['item']=='call'].groupby('network')['duration'].sum())
+print(data.groupby(['month','item'])['date'].count())
